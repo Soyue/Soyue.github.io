@@ -103,7 +103,7 @@
 手机号注册
   比较常见的一种注册方式，一般使用第三方短信验证服务，这里推荐SMSSDK。具体使用参阅官方文档,建议使用CocoaPods快速集成。
   1234// Mob产品公共">
-<meta property="og:updated_time" content="2017-03-06T14:09:58.000Z">
+<meta property="og:updated_time" content="2017-03-06T14:23:47.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS开发中登录流程的相关逻辑及其实现">
 <meta name="twitter:description" content="主流APP开发中，难免少不了注册、登录、登出、修改密码、忘记密码等这几个模块，其流程大致相同，逻辑也很简单，也是面试中最容易被问到的一类题。以下我就开发中常见的登录流程做一个小小的总结。（非第三方登录）
@@ -421,6 +421,7 @@
 <li><p>邮箱注册</p>
 <p>  邮箱注册大致流程和短信验证也差不多，这里不再细说，难点主要在于客户端对邮箱格式的判断处理，主要使用正则表达式做判断，这里贴上代码。</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (BOOL) validateEmail:(NSString *)email &#123;</div><div class="line">    NSString *emailRegex = @&quot;[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;&quot;;</div><div class="line">    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, emailRegex];</div><div class="line">    return [emailTest evaluateWithObject:email];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+  <a id="more"></a>
 </li>
 </ul>
 <h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p>为提高用户友好度，一般在用户注册成功之后直接会跳转到登录界面进行登录，登录成功后服务器一般会返回<code>UserId</code>和<code>AccessToken</code>。 <code>UserId</code>作为用户的唯一标识，<code>AccessToken</code>则相当于登录令牌是，在登录逻辑中是一个十分重要的概念。（<strong>有些应用开发服务器并不返回<code>AccessToken</code>, <code>AccessToken</code>是出于安全考虑</strong>）</p>

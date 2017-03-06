@@ -399,25 +399,37 @@
 
       
         
-          <blockquote>
+          
+            <blockquote>
 <p>主流APP开发中，难免少不了注册、登录、登出、修改密码、忘记密码等这几个模块，其流程大致相同，逻辑也很简单，也是面试中最容易被问到的一类题。以下我就开发中常见的登录流程做一个小小的总结。（<strong>非第三方登录</strong>）</p>
 </blockquote>
-<h1 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h1><ul>
+<pre><code>&lt;!-- more --&gt;
+</code></pre><h1 id="账号注册"><a href="#账号注册" class="headerlink" title="账号注册"></a>账号注册</h1><ul>
 <li><p>手机号注册</p>
-<p>  比较常见的一种注册方式，一般使用第三方短信验证服务，这里推荐<code>SMSSDK</code>。具体使用参阅<a href="http://wiki.mob.com/ios短信sdk集成文档/">官方文档</a>,建议使用<code>CocoaPods</code>快速集成。</p>
+<p>  比较常见的一种注册方式，一般使用第三方短信验证服务，这里推荐<code>SMSSDK</code>。具体使用参阅<a href="http://wiki.mob.com/ios短信sdk集成文档/" target="_blank" rel="external">官方文档</a>,建议使用<code>CocoaPods</code>快速集成。</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">// Mob产品公共库</div><div class="line">  pod &apos;MOBFoundation_IDFA&apos;</div><div class="line">  // SMSSDK必须</div><div class="line">  pod &apos;SMSSDK&apos;</div></pre></td></tr></table></figure>
 <p>  具体思路：短信验证交给<code>SMSSDK</code>，如果验证不通过前台直接<code>return</code>，之后将用户输入的用户名，密码等信息用<code>post</code>请求方式发送给服务器。（<strong>当然，在发送给服务器之前客户端应该做一些基本的逻辑判断，如：用户名为空或字符串长度超出限制等等，以减轻对服务器的依赖。</strong>）</p>
 </li>
 <li><p>邮箱注册</p>
 <p>  邮箱注册大致流程和短信验证也差不多，这里不再细说，难点主要在于客户端对邮箱格式的判断处理，主要使用正则表达式做判断，这里贴上代码。</p>
   <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">+ (BOOL) validateEmail:(NSString *)email &#123;</div><div class="line">    NSString *emailRegex = @&quot;[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]&#123;2,4&#125;&quot;;</div><div class="line">    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@&quot;SELF MATCHES %@&quot;, emailRegex];</div><div class="line">    return [emailTest evaluateWithObject:email];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/06/iOS开发中登录流程的相关逻辑及其实现/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+</li>
+</ul>
+<h1 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h1><p>为提高用户友好度，一般在用户注册成功之后直接会跳转到登录界面进行登录，登录成功后服务器一般会返回<code>UserId</code>和<code>AccessToken</code>。 <code>UserId</code>作为用户的唯一标识，<code>AccessToken</code>则相当于登录令牌是，在登录逻辑中是一个十分重要的概念。（<strong>有些应用开发服务器并不返回<code>AccessToken</code>, <code>AccessToken</code>是出于安全考虑</strong>）</p>
+<h2 id="AccessToken是什么"><a href="#AccessToken是什么" class="headerlink" title="AccessToken是什么"></a>AccessToken是什么</h2><p><code>AccessToken</code>： 是一个字符串，保证唯一性，是服务器根据用户的信息随机生成的用于标识用户的身份。当用户首次登录成功之后, 服务器端就会生成一个<code>AccessToken</code>。</p>
+<h2 id="AccessToken有什么作用"><a href="#AccessToken有什么作用" class="headerlink" title="AccessToken有什么作用"></a>AccessToken有什么作用</h2><pre><code>一句话概括：多态设备同时登录. 保证设备唯一性登录
+</code></pre><p>每次用户调用登录接口并且登录成功之后，都会在服务器生成新的<code>AccessToken</code>并同时返回给客户端，与此同时原来的<code>AccessToken</code>值就会失效，利用这一特性可以很好的防止账号在多台设备同时登录。保证了用户的信息安全。（<strong>有些APP如QQ和微信支持多设备同时在线的就不谈了，它是使用另外的机制确保了用户的信息安全</strong>）</p>
+<h2 id="AccessToken具体使用"><a href="#AccessToken具体使用" class="headerlink" title="AccessToken具体使用"></a>AccessToken具体使用</h2><ul>
+<li>将请求下来的<code>AccessToken</code>保存到本地，一般使用<code>NSUserDefault</code>。</li>
+<li>在网络请求中将从<code>NSUserDefault</code>取到的<code>AccessToken</code>放入到请求头中。</li>
+</ul>
+<p>这样在每次网络请求中，服务器会对传入的<code>AccessToken</code>与存储在服务器本地的<code>AccessToken</code>进行判断，如果不匹配则请求失败，此时客户端可以做相应处理。（<strong>比如：跳转到登录页面</strong>）</p>
+<h1 id="登出"><a href="#登出" class="headerlink" title="登出"></a>登出</h1><p>登出操作比较简单，直接调用接口就可以了，要注意的是在登出成功之后，客户端做跳转到登录界面的处理，并且记得将存储在<code>NSUserDefault</code>中的有关用户信息清除掉，否则如果还留存着<code>AccessToken</code>下次打开APP不会弹出登录界面（<strong>一般的直接登录逻辑都是根据是否有<code>AccessToken</code>来判断</strong>）</p>
+<h1 id="忘记密码以及修改密码"><a href="#忘记密码以及修改密码" class="headerlink" title="忘记密码以及修改密码"></a>忘记密码以及修改密码</h1><p>此部分也没什么难点，调用相关的接口就可以了，主要是客户端对用户输入的<code>text</code>的预判断。</p>
+<pre><code>附上一段登录成功后服务器返回的json数据
+</code></pre><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">    Data =     &#123;</div><div class="line">        AccessToken = &quot;0gZ6dGsQkiXRU6hWzlXJU3NJCFZe/VRxVkogub7O45s=&quot;;</div><div class="line">        Address = &quot;&lt;null&gt;&quot;;</div><div class="line">        Birthday = &quot;2017-02-24&quot;;</div><div class="line">        CardNo = 000014;</div><div class="line">        ExistsUnreadNews = 0;</div><div class="line">        IsMale = 0;</div><div class="line">        UserId = 15;</div><div class="line">        UserName = Soyue;</div><div class="line">    &#125;;</div><div class="line">    Message = Success;</div><div class="line">    Status = 200;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+          
         
       
     </div>

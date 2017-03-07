@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://yoursite.com/2017/03/07/block%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8/</loc>
+    <lastmod>2017-03-07T09:54:47.000Z</lastmod>
+    <data>
+        <display>
+        <title>block的简单梳理</title>
+        <pubTime>2017-03-07T07:52:02.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS基础" url="http://yoursite.com/categories/iOS%E5%9F%BA%E7%A1%80/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://yoursite.com/2017/03/07/%E5%9F%BA%E4%BA%8EAFNetworking%E7%AE%80%E5%8D%95%E5%B0%81%E8%A3%85%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82%E7%AE%A1%E7%90%86%E7%B1%BB/</loc>
     <lastmod>2017-03-07T07:34:09.000Z</lastmod>
     <data>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/06/iOS%E5%BC%80%E5%8F%91%E4%B8%AD%E7%99%BB%E5%BD%95%E6%B5%81%E7%A8%8B%E7%9A%84%E7%9B%B8%E5%85%B3%E9%80%BB%E8%BE%91%E5%8F%8A%E5%85%B6%E5%AE%9E%E7%8E%B0/</loc>
+    <lastmod>2017-03-06T23:37:10.000Z</lastmod>
+    <data>
+        <display>
+        <title>iOS开发中登录流程的相关逻辑及其实现</title>
+        <pubTime>2017-03-06T06:44:59.000Z</pubTime>
+        
+        <tag>iOS</tag>
+         
+        <tag>OC</tag>
+         
+         
+           
+             
+              <breadCrumb title="iOS开发" url="http://yoursite.com/categories/iOS%E5%BC%80%E5%8F%91/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://yoursite.com/2017/03/05/Hello-world/</loc>
+    <lastmod>2017-03-06T14:24:20.000Z</lastmod>
+    <data>
+        <display>
+        <title>Hello world</title>
+        <pubTime>2017-03-05T07:04:23.000Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="杂感" url="http://yoursite.com/categories/%E6%9D%82%E6%84%9F/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+    
+    
+</urlset>

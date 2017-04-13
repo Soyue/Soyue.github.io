@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS," />
 
 
 
@@ -87,15 +87,22 @@
 
 
 
-<meta name="description" content="It&apos;s all up to you.">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Soyue's Blog">
-<meta property="og:url" content="http://yoursite.com/archives/page/2/index.html">
+<meta name="description" content="在tableView中添加手势会导致cell的点击不能够被响应,被手势取代了,解决办法如下:(通过手势的代理进行解决UIGestureRecognizerDelegate)
+
+1234567#pragma mark - UIGestureRecognizerDelegate-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecogni">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIGestureRecognizer手势与tableViewCell点击共存">
+<meta property="og:url" content="http://yoursite.com/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/index.html">
 <meta property="og:site_name" content="Soyue's Blog">
-<meta property="og:description" content="It&apos;s all up to you.">
+<meta property="og:description" content="在tableView中添加手势会导致cell的点击不能够被响应,被手势取代了,解决办法如下:(通过手势的代理进行解决UIGestureRecognizerDelegate)
+
+1234567#pragma mark - UIGestureRecognizerDelegate-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecogni">
+<meta property="og:updated_time" content="2017-04-13T02:40:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Soyue's Blog">
-<meta name="twitter:description" content="It&apos;s all up to you.">
+<meta name="twitter:title" content="UIGestureRecognizer手势与tableViewCell点击共存">
+<meta name="twitter:description" content="在tableView中添加手势会导致cell的点击不能够被响应,被手势取代了,解决办法如下:(通过手势的代理进行解决UIGestureRecognizerDelegate)
+
+1234567#pragma mark - UIGestureRecognizerDelegate-(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecogni">
 
 
 
@@ -123,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/"/>
 
 
 
 
 
-  <title> 归档 | Soyue's Blog </title>
+  <title> UIGestureRecognizer手势与tableViewCell点击共存 | Soyue's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -164,7 +171,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -268,218 +275,214 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 15 篇日志。 继续努力。
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Soyue Zhao">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Soyue's Blog">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                UIGestureRecognizer手势与tableViewCell点击共存
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-13T10:31:38+08:00">
+                2017-04-13
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+             <span id="/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/" class="leancloud_visitors" data-flag-title="UIGestureRecognizer手势与tableViewCell点击共存">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <blockquote>
+<p>在<code>tableView</code>中添加手势会导致<code>cell</code>的点击不能够被响应,被手势取代了,解决办法如下:(通过手势的代理进行解决<code>UIGestureRecognizerDelegate</code>)</p>
+</blockquote>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - UIGestureRecognizerDelegate</span></div><div class="line">-(<span class="built_in">BOOL</span>)gestureRecognizer:(<span class="built_in">UIGestureRecognizer</span> *)gestureRecognizer shouldReceiveTouch:(<span class="built_in">UITouch</span> *)touch &#123;</div><div class="line">    <span class="keyword">if</span> ([<span class="built_in">NSStringFromClass</span>([touch.view <span class="keyword">class</span>]) isEqualToString:<span class="string">@"UITableViewCellContentView"</span>]) &#123;<span class="comment">// 判断如果点击的是tableView的cell，就把手势给关闭了</span></div><div class="line">        <span class="keyword">return</span> <span class="literal">NO</span>;<span class="comment">//关闭手势</span></div><div class="line">    &#125;<span class="comment">//否则手势存在</span></div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
         </div>
       
+
+      
+        
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/01/写在清明节假前/" rel="next" title="写在清明节假前">
+                <i class="fa fa-chevron-left"></i> 写在清明节假前
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/前段学习计划/" itemprop="url">
-              
-                <span itemprop="name">前端学习计划</span>
-              
-            </a>
-        
-      </h1>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T20:14:13+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/"
+     data-title="UIGestureRecognizer手势与tableViewCell点击共存"
+     data-content=""
+     data-url="http://yoursite.com/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
+
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
+
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/14/二维码扫描与创建/" itemprop="url">
-              
-                <span itemprop="name">二维码扫描与创建</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-14T08:36:51+08:00"
-              content="2017-03-14" >
-          03-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/10/Runtime之关联对象/" itemprop="url">
-              
-                <span itemprop="name">Runtime之关联对象</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-10T20:21:11+08:00"
-              content="2017-03-10" >
-          03-10
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/09/3-09需求/" itemprop="url">
-              
-                <span itemprop="name">3.09新需求(第三方登录)</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-09T17:26:49+08:00"
-              content="2017-03-09" >
-          03-09
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2017/03/08/《iOS开发进阶》读书笔记/" itemprop="url">
-              
-                <span itemprop="name">《iOS开发进阶》读书笔记</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-03-08T21:10:21+08:00"
-              content="2017-03-08" >
-          03-08
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/page/3/">3</a><a class="extend next" rel="next" href="/archives/page/3/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
           
           </div>
@@ -487,6 +490,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/"
+           data-title="UIGestureRecognizer手势与tableViewCell点击共存" data-url="http://yoursite.com/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -679,11 +690,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
 
 
   

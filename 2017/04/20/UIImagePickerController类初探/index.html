@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,相机调用," />
 
 
 
@@ -87,22 +87,28 @@
 
 
 
-<meta name="description" content="上周末回了一趟老家，祭拜了老祖宗，这是我记忆中第一次和家人一起扫墓，说来也是惭愧。家乡的油菜花这几天盛开了，开得是那么低调而慈祥，黄色是祭拜的颜色，盛开在清明这个时节，或许更是大自然对先祖，对历史的一种缅怀吧。">
+<meta name="description" content="UIImagePickerController是继承UINavigationController的子类,封装了一系列方法用于调用手机相机以及打开手机相册.属性sourceType定义了一下三种类型:
+
+
+UIImagePickerControllerSourceTypeCamera 调用相机
+UIImagePickerControllerSourceTypePhotoLibrary 调用照片目录">
 <meta property="og:type" content="article">
-<meta property="og:title" content="清明时节雨纷纷">
-<meta property="og:url" content="http://yoursite.com/2017/03/21/清明时节雨纷纷/index.html">
+<meta property="og:title" content="UIImagePickerController类初探">
+<meta property="og:url" content="http://yoursite.com/2017/04/20/UIImagePickerController类初探/index.html">
 <meta property="og:site_name" content="Soyue's Blog">
-<meta property="og:description" content="上周末回了一趟老家，祭拜了老祖宗，这是我记忆中第一次和家人一起扫墓，说来也是惭愧。家乡的油菜花这几天盛开了，开得是那么低调而慈祥，黄色是祭拜的颜色，盛开在清明这个时节，或许更是大自然对先祖，对历史的一种缅怀吧。">
-<meta property="og:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8641.JPG">
-<meta property="og:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8632.JPG">
-<meta property="og:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8635.JPG">
-<meta property="og:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8634.JPG">
-<meta property="og:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8633.JPG">
-<meta property="og:updated_time" content="2017-03-21T14:11:34.000Z">
+<meta property="og:description" content="UIImagePickerController是继承UINavigationController的子类,封装了一系列方法用于调用手机相机以及打开手机相册.属性sourceType定义了一下三种类型:
+
+
+UIImagePickerControllerSourceTypeCamera 调用相机
+UIImagePickerControllerSourceTypePhotoLibrary 调用照片目录">
+<meta property="og:updated_time" content="2017-04-20T03:29:11.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="清明时节雨纷纷">
-<meta name="twitter:description" content="上周末回了一趟老家，祭拜了老祖宗，这是我记忆中第一次和家人一起扫墓，说来也是惭愧。家乡的油菜花这几天盛开了，开得是那么低调而慈祥，黄色是祭拜的颜色，盛开在清明这个时节，或许更是大自然对先祖，对历史的一种缅怀吧。">
-<meta name="twitter:image" content="http://ombza5iky.bkt.clouddn.com/IMG_8641.JPG">
+<meta name="twitter:title" content="UIImagePickerController类初探">
+<meta name="twitter:description" content="UIImagePickerController是继承UINavigationController的子类,封装了一系列方法用于调用手机相机以及打开手机相册.属性sourceType定义了一下三种类型:
+
+
+UIImagePickerControllerSourceTypeCamera 调用相机
+UIImagePickerControllerSourceTypePhotoLibrary 调用照片目录">
 
 
 
@@ -130,13 +136,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/03/21/清明时节雨纷纷/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/20/UIImagePickerController类初探/"/>
 
 
 
 
 
-  <title> 清明时节雨纷纷 | Soyue's Blog </title>
+  <title> UIImagePickerController类初探 | Soyue's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -285,7 +291,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/21/清明时节雨纷纷/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/20/UIImagePickerController类初探/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Soyue Zhao">
@@ -306,7 +312,7 @@
             
             
               
-                清明时节雨纷纷
+                UIImagePickerController类初探
               
             
           </h1>
@@ -321,8 +327,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-21T21:05:20+08:00">
-                2017-03-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-20T11:05:11+08:00">
+                2017-04-20
               </time>
             
 
@@ -344,8 +350,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂感/" itemprop="url" rel="index">
-                    <span itemprop="name">杂感</span>
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
                   </a>
                 </span>
 
@@ -362,8 +368,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/03/21/清明时节雨纷纷/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/21/清明时节雨纷纷/" itemprop="commentCount"></span>
+                <a href="/2017/04/20/UIImagePickerController类初探/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/20/UIImagePickerController类初探/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -371,7 +377,7 @@
 
           
           
-             <span id="/2017/03/21/清明时节雨纷纷/" class="leancloud_visitors" data-flag-title="清明时节雨纷纷">
+             <span id="/2017/04/20/UIImagePickerController类初探/" class="leancloud_visitors" data-flag-title="UIImagePickerController类初探">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -401,13 +407,22 @@
 
       
         <blockquote>
-<p>上周末回了一趟老家，祭拜了老祖宗，这是我记忆中第一次和家人一起扫墓，说来也是惭愧。<br>家乡的油菜花这几天盛开了，开得是那么低调而慈祥，黄色是祭拜的颜色，盛开在清明这个时节，或许更是大自然对先祖，对历史的一种缅怀吧。</p>
+<p><code>UIImagePickerController</code>是继承<code>UINavigationController</code>的子类,封装了一系列方法用于调用手机相机以及打开手机相册.属性<code>sourceType</code>定义了一下三种类型:</p>
 </blockquote>
+<ul>
+<li>UIImagePickerControllerSourceTypeCamera 调用相机</li>
+<li>UIImagePickerControllerSourceTypePhotoLibrary 调用照片目录库</li>
+<li>UIImagePickerControllerSourceTypeSavedPhotosAlbum 调用最近拍摄的照片库</li>
+</ul>
 <a id="more"></a>
-<p>19号早晨，在田野里游走，凉风习习，望着远方，黄绿色相间延伸到天际，在我看来，黄色象征着缅怀与敬仰，而绿色则代表着新生与未来。远处的电线杆几只麻雀来来回回，而河岸边枯萎芦苇在凉风中摇曳。。。</p>
-<p>我之前在<code>path</code>里曾经写过：<em>“生命未曾逝去，生命依旧延续…”</em>逝去的生命只不过以另外一种方式延续了下来。</p>
-<p><img src="http://ombza5iky.bkt.clouddn.com/IMG_8641.JPG" alt=""><br><img src="http://ombza5iky.bkt.clouddn.com/IMG_8632.JPG" alt=""><br><img src="http://ombza5iky.bkt.clouddn.com/IMG_8635.JPG" alt=""><br><img src="http://ombza5iky.bkt.clouddn.com/IMG_8634.JPG" alt=""><br><img src="http://ombza5iky.bkt.clouddn.com/IMG_8633.JPG" alt=""></p>
-<p>回到工作上来，这段时间确实学了很多东西，自己也在抽时间阅读源码，在<code>github</code>上无意间看到了一个高仿版的微信，这几天正在研究，主要是学习别人对代码的重构、封装。另外，我们组也在集体学习前端，周一第一次集中进行了一次心得交流，还是蛮开心的。</p>
+<h1 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h1><pre><code>@property (nonatomic, strong) UIImagePickerController *imagePicker; // 照片管理控制器
+</code></pre><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">- (<span class="built_in">UIImagePickerController</span> *)imagePicker &#123;</div><div class="line">    <span class="keyword">if</span> (_imagePicker == <span class="literal">nil</span>) &#123;</div><div class="line">        _imagePicker = [[<span class="built_in">UIImagePickerController</span> alloc] init];</div><div class="line">        _imagePicker.delegate = <span class="keyword">self</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> _imagePicker;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>遵循协议<code>UINavigationControllerDelegate</code>,<code>UIImagePickerControllerDelegate</code>实现相关代理方法:</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#pragma mark - UIImagePickerControllerDelegate</span></div><div class="line"><span class="comment">// 选择了一张照片后执行</span></div><div class="line">- (<span class="keyword">void</span>)imagePickerController:(<span class="built_in">UIImagePickerController</span> *)picker didFinishPickingMediaWithInfo:(<span class="built_in">NSDictionary</span>&lt;<span class="built_in">NSString</span> *,<span class="keyword">id</span>&gt; *)info &#123;</div><div class="line">    </div><div class="line">    <span class="comment">// 通过info字典获取选择的照片</span></div><div class="line">    <span class="built_in">UIImage</span> *pickedImage = info[<span class="built_in">UIImagePickerControllerOriginalImage</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">self</span>.photoImage.image = pickedImage;</div><div class="line">    </div><div class="line">    [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:^&#123;</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 用户取消选择后执行</span></div><div class="line">- (<span class="keyword">void</span>)imagePickerControllerDidCancel:(<span class="built_in">UIImagePickerController</span> *)picker &#123;</div><div class="line">    [<span class="keyword">self</span> dismissViewControllerAnimated:<span class="literal">YES</span> completion:^&#123;</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="调用相机"><a href="#调用相机" class="headerlink" title="调用相机"></a>调用相机</h1><p>调用相机之前,首先得判断设备是否支持相机的调用,此外在<code>iOS 10</code>之后,需要在项目的<code>info.plist</code>文件中添加<code>Privacy - Photo Library Usage Description</code>以及<code>Privacy - Camera Usage Description</code>的键,用于对用户的友好提示.</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)cameraAction:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    <span class="comment">// 判断设备是否支持相机</span></div><div class="line">    <span class="keyword">if</span> ([<span class="built_in">UIImagePickerController</span> isSourceTypeAvailable:<span class="built_in">UIImagePickerControllerSourceTypeCamera</span>]) &#123;</div><div class="line">        </div><div class="line">        <span class="keyword">self</span>.imagePicker.sourceType = <span class="built_in">UIImagePickerControllerSourceTypeCamera</span>;</div><div class="line">        <span class="comment">// 以模态化弹出UIImagePickerController视图控制器</span></div><div class="line">        [<span class="keyword">self</span> presentViewController:<span class="keyword">self</span>.imagePicker];</div><div class="line">    &#125;<span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">return</span>;</div><div class="line">    &#125;</div><div class="line">    </div><div class="line">    - (<span class="keyword">void</span>)presentViewController:(<span class="built_in">UIImagePickerController</span> *)pickerController &#123;</div><div class="line">    [<span class="keyword">self</span> presentViewController:pickerController animated:<span class="literal">YES</span> completion:^&#123;</div><div class="line">        </div><div class="line">    &#125;];</div><div class="line">&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="调用照片图册"><a href="#调用照片图册" class="headerlink" title="调用照片图册"></a>调用照片图册</h1><p>只需更改<code>sourceType</code>类型为<code>UIImagePickerControllerSourceTypePhotoLibrary</code>或<code>UIImagePickerControllerSourceTypeSavedPhotosAlbum</code>即可弹出相应的控制器.</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">IBAction</span>)photoLibraryAction:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    <span class="keyword">self</span>.imagePicker.sourceType = <span class="built_in">UIImagePickerControllerSourceTypePhotoLibrary</span>;</div><div class="line">    [<span class="keyword">self</span> presentViewController:<span class="keyword">self</span>.imagePicker];</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">IBAction</span>)photoAlbumAction:(<span class="keyword">id</span>)sender &#123;</div><div class="line">    <span class="keyword">self</span>.imagePicker.sourceType = <span class="built_in">UIImagePickerControllerSourceTypeSavedPhotosAlbum</span>;</div><div class="line">    [<span class="keyword">self</span> presentViewController:<span class="keyword">self</span>.imagePicker];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -429,6 +444,14 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/相机调用/" rel="tag"># 相机调用</a>
+          
+        </div>
+      
 
       
         
@@ -438,8 +461,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/16/链式语法实现一个简易计算器/" rel="next" title="链式语法实现简易计算">
-                <i class="fa fa-chevron-left"></i> 链式语法实现简易计算
+              <a href="/2017/04/19/iOS视差-parallax-效果的实现/" rel="next" title="iOS视差(parallax)效果的实现">
+                <i class="fa fa-chevron-left"></i> iOS视差(parallax)效果的实现
               </a>
             
           </div>
@@ -447,10 +470,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/01/写在清明节假前/" rel="prev" title="写在清明节假前">
-                写在清明节假前 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -465,10 +484,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/03/21/清明时节雨纷纷/"
-     data-title="清明时节雨纷纷"
+        <div class="ds-share flat" data-thread-key="2017/04/20/UIImagePickerController类初探/"
+     data-title="UIImagePickerController类初探"
      data-content=""
-     data-url="http://yoursite.com/2017/03/21/清明时节雨纷纷/">
+     data-url="http://yoursite.com/2017/04/20/UIImagePickerController类初探/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -495,8 +514,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/03/21/清明时节雨纷纷/"
-           data-title="清明时节雨纷纷" data-url="http://yoursite.com/2017/03/21/清明时节雨纷纷/">
+      <div class="ds-thread" data-thread-key="2017/04/20/UIImagePickerController类初探/"
+           data-title="UIImagePickerController类初探" data-url="http://yoursite.com/2017/04/20/UIImagePickerController类初探/">
       </div>
     
   </div>
@@ -520,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -583,6 +611,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#初始化"><span class="nav-number">1.</span> <span class="nav-text">初始化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用相机"><span class="nav-number">2.</span> <span class="nav-text">调用相机</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#调用照片图册"><span class="nav-number">3.</span> <span class="nav-text">调用照片图册</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

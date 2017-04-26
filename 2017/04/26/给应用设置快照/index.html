@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="iOS,快照,毛玻璃效果," />
 
 
 
@@ -87,16 +87,16 @@
 
 
 
-<meta name="description" content="好几天没有写博客了，今天终于给项目打了个测试包，算是一段小结吧。给项目添加了三方登录，版本更新提醒功能，以及解决部分bug。。。。明天就清明小长假了，想想还是蛮开心的，下一阶段准备研究一下iOS动画框架，就是感觉很酷炫。">
+<meta name="description" content="当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击home键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈">
 <meta property="og:type" content="article">
-<meta property="og:title" content="写在清明节假前">
-<meta property="og:url" content="http://yoursite.com/2017/04/01/写在清明节假前/index.html">
+<meta property="og:title" content="修改应用快照">
+<meta property="og:url" content="http://yoursite.com/2017/04/26/给应用设置快照/index.html">
 <meta property="og:site_name" content="Soyue's Blog">
-<meta property="og:description" content="好几天没有写博客了，今天终于给项目打了个测试包，算是一段小结吧。给项目添加了三方登录，版本更新提醒功能，以及解决部分bug。。。。明天就清明小长假了，想想还是蛮开心的，下一阶段准备研究一下iOS动画框架，就是感觉很酷炫。">
-<meta property="og:updated_time" content="2017-04-01T08:55:28.000Z">
+<meta property="og:description" content="当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击home键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈">
+<meta property="og:updated_time" content="2017-04-26T05:38:29.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="写在清明节假前">
-<meta name="twitter:description" content="好几天没有写博客了，今天终于给项目打了个测试包，算是一段小结吧。给项目添加了三方登录，版本更新提醒功能，以及解决部分bug。。。。明天就清明小长假了，想想还是蛮开心的，下一阶段准备研究一下iOS动画框架，就是感觉很酷炫。">
+<meta name="twitter:title" content="修改应用快照">
+<meta name="twitter:description" content="当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击home键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈">
 
 
 
@@ -124,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/04/01/写在清明节假前/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/04/26/给应用设置快照/"/>
 
 
 
 
 
-  <title> 写在清明节假前 | Soyue's Blog </title>
+  <title> 修改应用快照 | Soyue's Blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -279,7 +279,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/01/写在清明节假前/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/26/给应用设置快照/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Soyue Zhao">
@@ -300,7 +300,7 @@
             
             
               
-                写在清明节假前
+                修改应用快照
               
             
           </h1>
@@ -315,8 +315,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-01T16:41:16+08:00">
-                2017-04-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-26T11:09:08+08:00">
+                2017-04-26
               </time>
             
 
@@ -338,8 +338,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂感/" itemprop="url" rel="index">
-                    <span itemprop="name">杂感</span>
+                  <a href="/categories/iOS开发/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS开发</span>
                   </a>
                 </span>
 
@@ -356,8 +356,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/04/01/写在清明节假前/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/01/写在清明节假前/" itemprop="commentCount"></span>
+                <a href="/2017/04/26/给应用设置快照/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/04/26/给应用设置快照/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -365,7 +365,7 @@
 
           
           
-             <span id="/2017/04/01/写在清明节假前/" class="leancloud_visitors" data-flag-title="写在清明节假前">
+             <span id="/2017/04/26/给应用设置快照/" class="leancloud_visitors" data-flag-title="修改应用快照">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -394,7 +394,18 @@
       
 
       
-        <p>好几天没有写博客了，今天终于给项目打了个测试包，算是一段小结吧。给项目添加了三方登录，版本更新提醒功能，以及解决部分bug。。。。<br>明天就清明小长假了，想想还是蛮开心的，下一阶段准备研究一下iOS动画框架，就是感觉很酷炫。</p>
+        <blockquote>
+<p>当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击<code>home</code>键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈</p>
+</blockquote>
+<a id="more"></a>
+<p>#主要思路</p>
+<ul>
+<li>在<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions</code>中,注册观察<code>UIApplicationWillResignActiveNotification</code>和<code>UIApplicationDidBecomeActiveNotification</code>的通知.</li>
+<li>在程序即将退出时创建一个<code>UIWindow</code>对象,”覆盖”在屏幕上;程序活跃状态时,隐藏该<code>window</code>,程序即将退出时<code>hidden</code>属性为<code>NO</code>.</li>
+<li>对该<code>window</code>添加<code>UIVisualEffectView</code>视图对象(<code>iOS 8</code>之后有效,使之拥有毛玻璃效果).</li>
+</ul>
+<p>#实现代码</p>
+<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 懒加载UIWindow对象(UIWindow一旦被创建就自动添加在整个界面之上了)</span></div><div class="line">- (<span class="built_in">UIWindow</span> *)blurWindow &#123;</div><div class="line">    <span class="keyword">if</span> (_blurWindow == <span class="literal">nil</span>) &#123;</div><div class="line">        _blurWindow = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line">        <span class="built_in">UIBlurEffect</span> *effect = [<span class="built_in">UIBlurEffect</span> effectWithStyle:<span class="built_in">UIBlurEffectStyleLight</span>];</div><div class="line">        <span class="built_in">UIVisualEffectView</span> *effectView = [[<span class="built_in">UIVisualEffectView</span> alloc] initWithEffect:effect];</div><div class="line">        effectView.frame = _blurWindow.bounds;</div><div class="line">        [_blurWindow addSubview:effectView];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _blurWindow;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="comment">// 注册观察UIApplicationWillResignActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationResignActive:) name:<span class="built_in">UIApplicationWillResignActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 注册观察UIApplicationDidBecomeActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationBecomeActive:) name:<span class="built_in">UIApplicationDidBecomeActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationResignActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationBecomeActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 通知中心移除观察者对象</span></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -416,6 +427,16 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/iOS/" rel="tag"># iOS</a>
+          
+            <a href="/tags/快照/" rel="tag"># 快照</a>
+          
+            <a href="/tags/毛玻璃效果/" rel="tag"># 毛玻璃效果</a>
+          
+        </div>
+      
 
       
         
@@ -425,8 +446,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/21/清明时节雨纷纷/" rel="next" title="清明时节雨纷纷">
-                <i class="fa fa-chevron-left"></i> 清明时节雨纷纷
+              <a href="/2017/04/20/UIImagePickerController类初探/" rel="next" title="UIImagePickerController类初探">
+                <i class="fa fa-chevron-left"></i> UIImagePickerController类初探
               </a>
             
           </div>
@@ -434,10 +455,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/04/13/UIGestureRecognizer手势与tableViewCell点击共存/" rel="prev" title="UIGestureRecognizer手势与tableViewCell点击共存">
-                UIGestureRecognizer手势与tableViewCell点击共存 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -452,10 +469,10 @@
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2017/04/01/写在清明节假前/"
-     data-title="写在清明节假前"
+        <div class="ds-share flat" data-thread-key="2017/04/26/给应用设置快照/"
+     data-title="修改应用快照"
      data-content=""
-     data-url="http://yoursite.com/2017/04/01/写在清明节假前/">
+     data-url="http://yoursite.com/2017/04/26/给应用设置快照/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -482,8 +499,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/04/01/写在清明节假前/"
-           data-title="写在清明节假前" data-url="http://yoursite.com/2017/04/01/写在清明节假前/">
+      <div class="ds-thread" data-thread-key="2017/04/26/给应用设置快照/"
+           data-title="修改应用快照" data-url="http://yoursite.com/2017/04/26/给应用设置快照/">
       </div>
     
   </div>

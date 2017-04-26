@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/04/26/给应用设置快照/index.html">
 <meta property="og:site_name" content="Soyue's Blog">
 <meta property="og:description" content="当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击home键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈">
-<meta property="og:updated_time" content="2017-04-26T05:38:29.000Z">
+<meta property="og:updated_time" content="2017-04-26T05:58:43.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="修改应用快照">
 <meta name="twitter:description" content="当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击home键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈">
@@ -398,14 +398,12 @@
 <p>当应用进入后台时,系统会给app生成当前界面的快照,此时,如果我们双击<code>home</code>键进入后台,就可以看到app的快照.然而,在某些情况下生成的快照并不符合我们的预期,比如,一些金融类的app,会泄露用户的隐私.(银行卡账号信息,资金信息,用户信息…可能都会在快照中发现).比较常见的做法是给生成的快照覆盖一层”毛玻璃”,这样就看不见了🙈</p>
 </blockquote>
 <a id="more"></a>
-<p>#主要思路</p>
-<ul>
+<h1 id="主要思路"><a href="#主要思路" class="headerlink" title="主要思路"></a>主要思路</h1><ul>
 <li>在<code>- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions</code>中,注册观察<code>UIApplicationWillResignActiveNotification</code>和<code>UIApplicationDidBecomeActiveNotification</code>的通知.</li>
 <li>在程序即将退出时创建一个<code>UIWindow</code>对象,”覆盖”在屏幕上;程序活跃状态时,隐藏该<code>window</code>,程序即将退出时<code>hidden</code>属性为<code>NO</code>.</li>
 <li>对该<code>window</code>添加<code>UIVisualEffectView</code>视图对象(<code>iOS 8</code>之后有效,使之拥有毛玻璃效果).</li>
 </ul>
-<p>#实现代码</p>
-<figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 懒加载UIWindow对象(UIWindow一旦被创建就自动添加在整个界面之上了)</span></div><div class="line">- (<span class="built_in">UIWindow</span> *)blurWindow &#123;</div><div class="line">    <span class="keyword">if</span> (_blurWindow == <span class="literal">nil</span>) &#123;</div><div class="line">        _blurWindow = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line">        <span class="built_in">UIBlurEffect</span> *effect = [<span class="built_in">UIBlurEffect</span> effectWithStyle:<span class="built_in">UIBlurEffectStyleLight</span>];</div><div class="line">        <span class="built_in">UIVisualEffectView</span> *effectView = [[<span class="built_in">UIVisualEffectView</span> alloc] initWithEffect:effect];</div><div class="line">        effectView.frame = _blurWindow.bounds;</div><div class="line">        [_blurWindow addSubview:effectView];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _blurWindow;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="comment">// 注册观察UIApplicationWillResignActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationResignActive:) name:<span class="built_in">UIApplicationWillResignActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 注册观察UIApplicationDidBecomeActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationBecomeActive:) name:<span class="built_in">UIApplicationDidBecomeActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationResignActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationBecomeActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 通知中心移除观察者对象</span></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="实现代码"><a href="#实现代码" class="headerlink" title="实现代码"></a>实现代码</h1><figure class="highlight objectivec"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 懒加载UIWindow对象(UIWindow一旦被创建就自动添加在整个界面之上了)</span></div><div class="line">- (<span class="built_in">UIWindow</span> *)blurWindow &#123;</div><div class="line">    <span class="keyword">if</span> (_blurWindow == <span class="literal">nil</span>) &#123;</div><div class="line">        _blurWindow = [[<span class="built_in">UIWindow</span> alloc] initWithFrame:[<span class="built_in">UIScreen</span> mainScreen].bounds];</div><div class="line">        <span class="built_in">UIBlurEffect</span> *effect = [<span class="built_in">UIBlurEffect</span> effectWithStyle:<span class="built_in">UIBlurEffectStyleLight</span>];</div><div class="line">        <span class="built_in">UIVisualEffectView</span> *effectView = [[<span class="built_in">UIVisualEffectView</span> alloc] initWithEffect:effect];</div><div class="line">        effectView.frame = _blurWindow.bounds;</div><div class="line">        [_blurWindow addSubview:effectView];</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> _blurWindow;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="built_in">BOOL</span>)application:(<span class="built_in">UIApplication</span> *)application didFinishLaunchingWithOptions:(<span class="built_in">NSDictionary</span> *)launchOptions</div><div class="line">&#123;</div><div class="line">	...</div><div class="line">	</div><div class="line">	<span class="comment">// 注册观察UIApplicationWillResignActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationResignActive:) name:<span class="built_in">UIApplicationWillResignActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="comment">// 注册观察UIApplicationDidBecomeActiveNotification的通知</span></div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] addObserver:<span class="keyword">self</span> selector:<span class="keyword">@selector</span>(applicationBecomeActive:) name:<span class="built_in">UIApplicationDidBecomeActiveNotification</span> object:<span class="literal">nil</span>];</div><div class="line">    </div><div class="line">    <span class="keyword">return</span> <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationResignActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">NO</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line">- (<span class="keyword">void</span>)applicationBecomeActive:(<span class="built_in">NSNotification</span> *)noti &#123;</div><div class="line">    <span class="keyword">self</span>.blurWindow.hidden = <span class="literal">YES</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">// 通知中心移除观察者对象</span></div><div class="line">- (<span class="keyword">void</span>)dealloc &#123;</div><div class="line">    [[<span class="built_in">NSNotificationCenter</span> defaultCenter] removeObserver:<span class="keyword">self</span>];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -524,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.jpg"
@@ -587,6 +594,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#主要思路"><span class="nav-number">1.</span> <span class="nav-text">主要思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现代码"><span class="nav-number">2.</span> <span class="nav-text">实现代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
